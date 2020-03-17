@@ -1,7 +1,7 @@
 package kz.bitlab.models;
 
 public class Lesson {
-    private int id;
+    private Long id;
     private String title;
     private String description;
     private int courseId;
@@ -10,11 +10,11 @@ public class Lesson {
     public Lesson() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,7 +50,7 @@ public class Lesson {
         this.ordering = ordering;
     }
 
-    public Lesson(int id, String title, String description, int courseId, int ordering) {
+    public Lesson(Long id, String title, String description, int courseId, int ordering) {
         this.id = id;
         this.title = title;
         this.description = description;

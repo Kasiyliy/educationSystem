@@ -13,7 +13,7 @@ public class dbManager {
     private void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/football?serverTimezone=UTC","root", "admin@123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/educationsystem?serverTimezone=UTC","root", "admin@123");
 
         }catch (Exception e){
             e.printStackTrace();
@@ -22,7 +22,11 @@ public class dbManager {
 
     public boolean addLesson(Lesson lesson) {
         boolean result = false;
+
         try {
+            if(connection==null){
+                connect();
+            }
             PreparedStatement statement = connection.prepareStatement("" +
                     "INSERT INTO lessons (lessons.title, lessons.description, lessons.course_id, lessons.ordering) VALUES (?,?,?,?)"
             );

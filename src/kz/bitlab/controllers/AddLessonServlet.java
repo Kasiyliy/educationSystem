@@ -23,11 +23,14 @@ public class AddLessonServlet extends HttpServlet {
         String title = request.getParameter("lessonTitle");
         String description = request.getParameter("lessonDescription");
         String courseIdStr = request.getParameter("courseId");
-        String orderingStr = request.getParameter("ordering");
+        String orderingStr = request.getParameter("lessonOrdering");
 
         if(Helper.allNotNull(title,description,courseIdStr,orderingStr) && Helper.isNumber(courseIdStr) && Helper.isNumber(orderingStr)){
             Lesson lesson = new Lesson(null,title,description,Integer.parseInt(courseIdStr),Integer.parseInt(orderingStr));
             dbManager.addLesson(lesson);
+            response.sendRedirect("/index.jsp");
+        }else{
+            response.sendRedirect("/index.jsp?error=1");
         }
     }
 

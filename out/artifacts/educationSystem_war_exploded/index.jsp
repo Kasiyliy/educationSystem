@@ -11,6 +11,12 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <form action="/addLesson" method="post">
+  <input type="text" name="lessonTitle" placeholder="title">
+  <input type="text" name="lessonDescription" placeholder="text">
+  <input type="text" name="courseId" placeholder="course id">
+  <input type="text" name="lessonOrdering" placeholder="order">
+    <input type="submit" value="Save">
+  </form>
   </body>
 </html>
